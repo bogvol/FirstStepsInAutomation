@@ -1,0 +1,13 @@
+*/.idea/*
+*/target/*
+*/.settings/*
+*/.project
+*/.classpath
+RiskMarket-master/simple_selenide_cucumber/.idea/
+
+
+*.class
+
+*.war
+*.jar
+*.ear
