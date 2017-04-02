@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class MenuView {
 
-    private int START_CODE = 1;
+    private final int START_CODE = 1;
 
     public int showMenuWithResult() {
         System.out.println(START_CODE + " - Start");

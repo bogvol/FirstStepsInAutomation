@@ -10,6 +10,10 @@ public class Player {
     private final String figure;
 
     public Player(final String name, final String figure) {
+
+        assert name != null;
+        assert figure != null;
+
         this.name = name;
         this.figure = figure;
     }

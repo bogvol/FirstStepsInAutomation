@@ -3,11 +3,15 @@ package model;
 /**
  * Created by Kengoroo_a on 01.04.2017.
  */
-public class Figure {
+public enum Figure {
+
+    X("X"), O("O");
 
     private final String figure;
 
-    public Figure(final String figure) {
+    Figure(final String figure) {
+        assert figure != null;
+
         this.figure = figure;
     }
 

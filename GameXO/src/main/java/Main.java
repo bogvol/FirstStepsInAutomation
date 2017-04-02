@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final GameController game = new GameController();
+        final GameController game = new GameController(null, null, null);
         final AdvConsoleView advConsoleView = new AdvConsoleView(game);
         final ConsoleView consoleView = new ConsoleView(game);
         startGame(advConsoleView);
