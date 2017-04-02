@@ -17,8 +17,6 @@ public class ConsoleView {
 
     protected final GameController gameController;
 
-    public static final Scanner IN = new Scanner(System.in);
-
     public ConsoleView(final GameController gameController) {
         assert gameController != null;
         this.gameController = gameController;
