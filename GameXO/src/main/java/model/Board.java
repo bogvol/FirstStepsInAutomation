@@ -1,9 +1,24 @@
 package model;
 
+import java.util.Arrays;
+
 /**
  * Created by Kengoroo_a on 01.04.2017.
  */
 public class Board {
+
+    public static final int SIZE_FIELD = 3;
+
+    private Figure[][] figures = new Figure[SIZE_FIELD][SIZE_FIELD];
+
+    public void initArray(){
+        figures[0] = new Figure("O");
+        figures[2] = new Figure("X");
+    }
+
+    public void showBoard(){
+        System.out.println(Arrays.toString(this.figures));
+    }
 
 //    public static final String GAME_NAME = "XO";
 //

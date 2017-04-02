@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Created by Kengoroo_a on 01.04.2017.
  */
@@ -13,4 +15,3 @@ public class Figure {
         return figure;
     }
 }
-
