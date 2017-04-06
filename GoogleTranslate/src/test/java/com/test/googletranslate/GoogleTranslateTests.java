@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 public class GoogleTranslateTests {
     private WebDriver driver;
-    private WebDriver driverForNewSession = null;
+    private WebDriver driverForConcurrentSession = null;
 
     @Before
     public void setUp() {
@@ -27,7 +27,7 @@ public class GoogleTranslateTests {
     @After
     public void tearDown() {
         driver.quit();
-        if (driverForNewSession != null) driverForNewSession.quit();
+        if (driverForConcurrentSession != null) driverForConcurrentSession.quit();
     }
 
     @Test
@@ -40,11 +40,11 @@ public class GoogleTranslateTests {
         String link = searchResult.retrieveItemLinkFromResultsList();
         String linkEN = link.replaceAll("(hl=)[a-z]+", "hl=en");
         // Open Google Translate in new browser session
-        driverForNewSession = new ChromeDriver();
-        driverForNewSession.manage().window().maximize();
-        driverForNewSession.get(linkEN);
+        driverForConcurrentSession = new ChromeDriver();
+        driverForConcurrentSession.manage().window().maximize();
+        driverForConcurrentSession.get(linkEN);
         // Choose languages
-        GoogleTranslatePage translator = new GoogleTranslatePage(driverForNewSession);
+        GoogleTranslatePage translator = new GoogleTranslatePage(driverForConcurrentSession);
         translator.chooseSourceAndTargetLanguage("English", "Polish");
 
         assertThat(translator.getTranslation("luxoft test task"), containsString("zadaniem testu"));
