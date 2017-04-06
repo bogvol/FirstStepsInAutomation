@@ -37,20 +37,11 @@ public class GoogleTranslatePage {
     }
 
     public void chooseSourceAndTargetLanguage(final String sourceLanguage, final String targetLanguage) {
-        // Choose language to translate from
-        sourceLanguageDropdownMenu.click();
-        sourceLanguageItem = driver
-                .findElement(By.xpath(".//*[@id='gt-sl-gms-menu']//div[contains(text(),'" + sourceLanguage + "')]"));
-        sourceLanguageItem.click();
-        // Choose language to translate to
-        targetLanguageDropdownMenu.click();
-        targetLanguageItem = driver
-                .findElement(By.xpath(".//*[@id='gt-tl-gms-menu']//div[contains(text(),'" + targetLanguage + "')]"));
-        targetLanguageItem.click();
+        chooseSourceLanguage(sourceLanguage);
+        chooseTargetLanguage(targetLanguage);
     }
 
     public String getTranslation(final String text) {
-
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(sourceTextArea)).sendKeys(text);
 
@@ -58,5 +49,19 @@ public class GoogleTranslatePage {
 
         return new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(targetTextArea)).getText();
+    }
+
+    private void chooseSourceLanguage(String sourceLanguage) {
+        sourceLanguageDropdownMenu.click();
+        sourceLanguageItem = driver
+                .findElement(By.xpath(".//*[@id='gt-sl-gms-menu']//div[contains(text(),'" + sourceLanguage + "')]"));
+        sourceLanguageItem.click();
+    }
+
+    private void chooseTargetLanguage(String targetLanguage) {
+        targetLanguageDropdownMenu.click();
+        targetLanguageItem = driver
+                .findElement(By.xpath(".//*[@id='gt-tl-gms-menu']//div[contains(text(),'" + targetLanguage + "')]"));
+        targetLanguageItem.click();
     }
 }
